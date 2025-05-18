@@ -1,19 +1,94 @@
+<script setup>
+import { ref } from 'vue'
+
+const localMotorcycles = ref([
+  {
+    id: 1,
+    title: 'Duke 600',
+    comment: 'Дорожный',
+    price: '499 999 ₽',
+    image: 'image/cards.png',
+  },
+  {
+    id: 2,
+    title: 'Duke 600',
+    comment: 'Дорожный',
+    price: '499 999 ₽',
+    image: 'image/cards.png',
+  },
+  {
+    id: 3,
+    title: 'Duke 600',
+    comment: 'Дорожный',
+    price: '499 999 ₽',
+    image: 'image/cards.png',
+  },
+  {
+    id: 4,
+    title: 'Duke 600',
+    comment: 'Дорожный',
+    price: '499 999 ₽',
+    image: 'image/cards.png',
+  },
+  {
+    id: 5,
+    title: 'Duke 600',
+    comment: 'Дорожный',
+    price: '499 999 ₽',
+    image: 'image/cards.png',
+  },
+  {
+    id: 6,
+    title: 'Duke 600',
+    comment: 'Дорожный',
+    price: '499 999 ₽',
+    image: 'image/cards.png',
+  },
+  {
+    id: 7,
+    title: 'Duke 600',
+    comment: 'Дорожный',
+    price: '499 999 ₽',
+    image: 'image/cards.png',
+  },
+  {
+    id: 8,
+    title: 'Duke 600',
+    comment: 'Дорожный',
+    price: '499 999 ₽',
+    image: 'image/cards.png',
+  },
+])
+
+function addToCart(motorcycle) {
+  console.warn(motorcycle)
+}
+</script>
+
 <template>
   <div class="overview">
     <div class="icon_menu">
       <span class="cat">Главная</span>
-      <div class="white">/</div>
+      <div class="white">
+        /
+      </div>
       <span class="white">Каталог</span>
     </div>
     <h2>Наши Байки</h2>
     <div class="motorcycle-grid">
       <div v-for="motorcycle in localMotorcycles" :key="motorcycle.id" class="motorcycle-card">
         <img :src="motorcycle.image" alt="" class="motorcycle-image">
-        <h2 class="motorcycle-name">{{ motorcycle.title }}</h2>
-        <p class="motorcycle-description">{{ motorcycle.comment }}</p>
-        <p class="motorcycle-price">{{ motorcycle.price }}</p>
+        <h2 class="motorcycle-name">
+          {{ motorcycle.title }}
+        </h2>
+        <p class="motorcycle-description">
+          {{ motorcycle.comment }}
+        </p>
+        <p class="motorcycle-price">
+          {{ motorcycle.price }}
+        </p>
         <div class="down-cart">
-          <img src="../../image/Add.png" alt="" />
+          <img src="../../image/Add.png" alt="">
           <button class="add-to-cart" @click="addToCart(motorcycle)">
             Добавить в корзину
           </button>
@@ -23,79 +98,10 @@
   </div>
 </template>
 
-<script setup>
-import { ref } from 'vue'
-
-const localMotorcycles = ref([
-  {
-    id: 1,
-    title: "Duke 600",
-    comment: "Дорожный",
-    price: "499 999 ₽",
-    image: "image/cards.png"
-  },
-  {
-    id: 2,
-    title: "Duke 600",
-    comment: "Дорожный",
-    price: "499 999 ₽",
-    image: "image/cards.png"
-  },
-  {
-    id: 3,
-    title: "Duke 600",
-    comment: "Дорожный",
-    price: "499 999 ₽",
-    image: "image/cards.png"
-  },
-  {
-    id: 4,
-    title: "Duke 600",
-    comment: "Дорожный",
-    price: "499 999 ₽",
-    image: "image/cards.png"
-  },
-  {
-    id: 5,
-    title: "Duke 600",
-    comment: "Дорожный",
-    price: "499 999 ₽",
-    image: "image/cards.png"
-  },
-  {
-    id: 6,
-    title: "Duke 600",
-    comment: "Дорожный",
-    price: "499 999 ₽",
-    image: "image/cards.png"
-  },
-  {
-    id: 7,
-    title: "Duke 600",
-    comment: "Дорожный",
-    price: "499 999 ₽",
-    image: "image/cards.png"
-  },
-  {
-    id: 8,
-    title: "Duke 600",
-    comment: "Дорожный",
-    price: "499 999 ₽",
-    image: "image/cards.png"
-  }
-])
-
-function addToCart(motorcycle) {
-  console.log(motorcycle)
-}
-</script>
-
 <style scoped>
 h2 {
   color: white;
 }
-
-.overview {}
 
 .cat {
   color: var(--Title-h2);
@@ -163,7 +169,7 @@ h2 {
   justify-content: center;
   gap: 10px;
 }
-.down-cart img{
+.down-cart img {
   width: 30px;
 }
 

@@ -1,24 +1,3 @@
-<template>
-  <div class="motorcycle-grid">
-    <div class="overview">
-      <h2>Товары</h2>
-    </div>
-    <div v-for="(motorcycle, index) in motorcycles" :key="index" class="motorcycle-card-product">
-      <div class="card_bas">
-        <img :src="motorcycle.image" alt="" class="motorcycle-image">
-        <div class="text_bas">
-          <h2 class="motorcycle-name">{{ motorcycle.name }}</h2>
-          <p class="motorcycle-description">{{ motorcycle.description }}</p>
-        </div>
-        <p class="motorcycle-price">{{ motorcycle.price }}</p>
-      </div>
-      <div class="delete">
-        <img src="../../image/Cross.png" alt="" />
-      </div>
-    </div>
-  </div>
-</template>
-
 <script>
 export default {
   data() {
@@ -28,37 +7,64 @@ export default {
           image: 'image/cards.png',
           name: 'Triumph',
           description: 'Байк',
-          price: 'Цена : 567.000₽'
+          price: 'Цена : 567.000₽',
         },
         {
           image: 'image/cards.png',
           name: 'Triumph',
           description: 'Байк',
-          price: 'Цена : 567.000₽'
+          price: 'Цена : 567.000₽',
         },
         {
           image: 'image/cards.png',
           name: 'Triumph',
           description: 'Байк',
-          price: 'Цена : 567.000₽'
+          price: 'Цена : 567.000₽',
         },
         {
           image: 'image/cards.png',
           name: 'Triumph',
           description: 'Байк',
-          price: 'Цена : 567.000₽'
+          price: 'Цена : 567.000₽',
         },
-      ]
+      ],
     }
   },
   methods: {
     addToCart(motorcycle) {
       // Здесь должен быть код для добавления мотоцикла в корзину
-      console.log('Добавлено в корзину:', motorcycle.name);
-    }
-  }
+      console.warn('Добавлено в корзину:', motorcycle.name)
+    },
+  },
 }
 </script>
+
+<template>
+  <div class="motorcycle-grid">
+    <div class="overview">
+      <h2>Товары</h2>
+    </div>
+    <div v-for="(motorcycle, index) in motorcycles" :key="index" class="motorcycle-card-product">
+      <div class="card_bas">
+        <img :src="motorcycle.image" alt="" class="motorcycle-image">
+        <div class="text_bas">
+          <h2 class="motorcycle-name">
+            {{ motorcycle.name }}
+          </h2>
+          <p class="motorcycle-description">
+            {{ motorcycle.description }}
+          </p>
+        </div>
+        <p class="motorcycle-price">
+          {{ motorcycle.price }}
+        </p>
+      </div>
+      <div class="delete">
+        <img src="../../image/Cross.png" alt="">
+      </div>
+    </div>
+  </div>
+</template>
 
 <style scoped>
 .delete {
@@ -81,9 +87,6 @@ export default {
 }
 .text_bas {
   margin-left: 15px;
-}
-.overview {
-
 }
 .overview h2 {
   font-size: 24px;

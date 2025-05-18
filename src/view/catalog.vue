@@ -1,16 +1,16 @@
 <script setup>
-import MainTop from '@/components/MainTop.vue'
-import BlockCatalog from '@/components/BlockCatalog.vue'
-import DashBoardIcons from '@/components/DashBoardIcons.vue'
+import MainTop from '@/components/main-top.vue'
+import BlockCatalog from '@/components/block-catalog.vue'
+import DashBoardIcons from '@/components/dash-board-icons.vue'
 </script>
 
 <template>
   <div class="DashBoard">
-    <DashBoardIcons/>
+    <DashBoardIcons />
   </div>
   <div class="home">
-    <MainTop/>
-    <BlockCatalog/>
+    <MainTop />
+    <BlockCatalog />
   </div>
 </template>
 
@@ -22,6 +22,4 @@ import DashBoardIcons from '@/components/DashBoardIcons.vue'
   gap: 55px;
   margin-left: 20px;
 }
-
-
 </style>

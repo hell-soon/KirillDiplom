@@ -5,25 +5,33 @@ export default {
     title: String,
     description: String,
     pink: Boolean,
-  }
+  },
 }
 </script>
 
 <template>
-  <div class="motorcycle-card" :class="{pink}">
-    <img class="motorcycle-card-images" src="../../image/SportBikeWeapon.png" alt=""/>
+  <div class="motorcycle-card" :class="{ pink }">
+    <img class="motorcycle-card-images" src="../../image/SportBikeWeapon.png" alt="">
     <div class="motorcycle-card__content">
       <div class="Opis">
-        <span :class="{'white':pink}">Начало у нас</span>
-        <p class="motorcycle-price" :class="{'white':pink}">{{price}}₽</p>
-        <h2 class="motorcycle-name" :class="{'white':pink}">{{title}}</h2>
-        <p class="motorcycle-description" :class="{'white':pink}">{{description}}</p>
+        <span :class="{ white: pink }">Начало у нас</span>
+        <p class="motorcycle-price" :class="{ white: pink }">
+          {{ price }}₽
+        </p>
+        <h2 class="motorcycle-name" :class="{ white: pink }">
+          {{ title }}
+        </h2>
+        <p class="motorcycle-description" :class="{ white: pink }">
+          {{ description }}
+        </p>
       </div>
       <div class="down-cart">
-        <img v-if="!pink" src="../../image/Arrow-krug.png" alt=""/>
-        <img v-else src="../../image/Button_White.png" alt=""/>
+        <img v-if="!pink" src="../../image/Arrow-krug.png" alt="">
+        <img v-else src="../../image/Button_White.png" alt="">
         <router-link to="Catalog">
-          <button class="add-to-cart">Перейти к каталогу</button>
+          <button class="add-to-cart">
+            Перейти к каталогу
+          </button>
         </router-link>
       </div>
     </div>

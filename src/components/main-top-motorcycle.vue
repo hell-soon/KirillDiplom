@@ -1,38 +1,29 @@
-<script>
+<script setup>
 import { ref } from 'vue'
-// import { useScrollLock } from '@vueuse/core';
+import { useScrollLock } from '@vueuse/core'
 
-export default {
-  setup() {
-    const modal = ref(false)
-    const isLocked = ref(false)
+const modal = ref(false)
+const isLocked = ref(false)
 
-    const registration = ref(false)
+const registration = ref(false)
 
-    const showModal = () => {
-      modal.value = !modal.value
-      isLocked.value = !isLocked.value
+function showModal() {
+  modal.value = !modal.value
+  isLocked.value = !isLocked.value
 
-      // Обновляем состояние блокировки скролла
-      // useScrollLock(document.body, isLocked.value);
-    }
+  console.log('isLocked.value', isLocked.value)
+  console.log('modal.value', modal.value)
 
-    const switchReg = () => {
-      registration.value = true
-    }
+  // Обновляем состояние блокировки скролла
+  useScrollLock(document.body, isLocked.value)
+}
 
-    const switchLog = () => {
-      registration.value = false
-    }
+function switchReg() {
+  registration.value = true
+}
 
-    return {
-      modal,
-      registration,
-      switchLog,
-      showModal,
-      switchReg
-    }
-  }
+function switchLog() {
+  registration.value = false
 }
 </script>
 
@@ -41,14 +32,14 @@ export default {
     <header>
       <div class="grid_icon">
         <div class="search_main">
-          <img src="../../image/Search.png" alt="#" />
+          <img src="../../image/Search.png" alt="#">
           <input class="text_search" type="search" placeholder="Найти...">
         </div>
         <div class="menu-icons_moto">
           <router-link to="profile">
-            <a><img src="../../image/Avatar.png" alt="profile" /></a>
+            <a><img src="../../image/Avatar.png" alt="profile"></a>
           </router-link>
-          <span @click="showModal" class="text_nickname">Name</span>
+          <span class="text_nickname" @click="showModal">Name</span>
         </div>
       </div>
       <div class="corz">
@@ -61,7 +52,7 @@ export default {
           </router-link>
         </div>
         <router-link to="Basket">
-          <img src="../../image/Cart.png" alt="/Basket" />
+          <img src="../../image/Cart.png" alt="/Basket">
         </router-link>
       </div>
     </header>
@@ -70,16 +61,22 @@ export default {
     <div v-show="modal" class="modal">
       <div class="modal-content">
         <div class="modal-main">
-          <span @click="showModal" class="cross-active">
-          <img src="../../image/Cross-active.png" />
+          <span class="cross-active" @click="showModal">
+            <img src="../../image/Cross-active.png">
           </span>
           <div class="login-box">
             <div class="text-log_container">
-              <div class="text-log" :class="{'white' : !registration}" @click="switchLog">Вход</div>
-              <div class="white">/</div>
-              <div class="text-log" :class="{'white' : registration}" @click="switchReg">Регистрация</div>
+              <div class="text-log" :class="{ white: !registration }" @click="switchLog">
+                Вход
+              </div>
+              <div class="white">
+                /
+              </div>
+              <div class="text-log" :class="{ white: registration }" @click="switchReg">
+                Регистрация
+              </div>
             </div>
-            <div class="text-write_container" v-show="!registration">
+            <div v-show="!registration" class="text-write_container">
               <div class="text-write">
                 <input class="text_search_log" type="search" placeholder="Логин">
               </div>
@@ -87,7 +84,7 @@ export default {
                 <input class="text_search_log" type="search" placeholder="Пароль">
               </div>
             </div>
-            <div class="text-write_container" v-show="registration">
+            <div v-show="registration" class="text-write_container">
               <div class="text-write">
                 <input class="text_search_log" type="search" placeholder="Ник">
               </div>
@@ -102,15 +99,18 @@ export default {
               </div>
             </div>
             <div class="button-log">
-              <button class="button">Войти</button>
-              <button class="button">Регистрация</button>
+              <button class="button">
+                Войти
+              </button>
+              <button class="button">
+                Регистрация
+              </button>
             </div>
           </div>
         </div>
       </div>
     </div>
   </Transition>
-
 </template>
 
 <style>
@@ -121,7 +121,7 @@ export default {
 }
 .top_icon {
   font-size: 20px;
-  color: #737A85;
+  color: #737a85;
 }
 .top_icon:hover {
   color: white;
@@ -131,7 +131,7 @@ export default {
   display: flex;
   gap: 20px;
 }
-.corz img{
+.corz img {
   width: auto;
   height: auto;
 }
@@ -170,7 +170,7 @@ export default {
 }
 .text_search_log {
   color: white;
-  border: solid 3px #A6A6A6;
+  border: solid 3px #a6a6a6;
   border-radius: 25px;
   background: transparent;
   padding-left: 10px;
@@ -192,13 +192,13 @@ export default {
   gap: 10px;
 }
 .text-log {
-  color: #6F7579;
+  color: #6f7579;
   font-size: 14px;
 }
 .modal {
   z-index: 20;
   position: absolute;
-  background-color: rgba(0, 0, 0, .8);
+  background-color: rgba(0, 0, 0, 0.8);
   right: 0;
   top: 0;
   width: 100%;
@@ -227,7 +227,7 @@ export default {
   color: #fff;
   width: 170px;
   height: 40px;
-  border: solid 3px #5C656C;
+  border: solid 3px #5c656c;
   border-radius: 25px;
   cursor: pointer;
 }
